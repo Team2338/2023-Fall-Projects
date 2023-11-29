@@ -2,6 +2,7 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.driveModes.EnableBoost;
 import team.gif.robot.commands.drivetrain.Reset0;
 import team.gif.robot.commands.drivetrain.Reset180;
 import team.gif.robot.commands.limelight.LimeLightAutoAlign;
@@ -98,6 +99,8 @@ public class OI {
 //        dDPadLeft.whileTrue(new MoveLeftSlow());
 //        dDPadDown.whileTrue(new MoveCloserSlow());
 //        dLStickBtn.whileTrue(new EnableBoost());
+
+        dLStickBtn.whileTrue(new EnableBoost()); // this was not working when I was testing.
 
         dA.and(dRTrigger).onTrue(new Reset180());
         aX.and(dRTrigger).onTrue(new Reset0());

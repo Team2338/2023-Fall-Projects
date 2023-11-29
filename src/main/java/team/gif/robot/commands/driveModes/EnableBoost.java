@@ -9,7 +9,6 @@ public class EnableBoost extends CommandBase {
     private drivePace drivePace;
     public EnableBoost() {
         super();
-//        addRequirements(Robot.swervetrain);
     }
 
     // Called when the command is initially scheduled.

@@ -154,8 +154,6 @@ public class SwerveDrivetrain extends SubsystemBase {
      * @param rot dRot
      */
     public void drive(double x, double y, double rot) {
-
-
         SwerveModuleState[] swerveModuleStates =
                 Constants.Drivetrain.DRIVE_KINEMATICS.toSwerveModuleStates(
                         drivePace.getIsFieldRelative() ?
