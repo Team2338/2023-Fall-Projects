@@ -11,6 +11,7 @@ import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.drivetrain.DriveSwerve;
 import team.gif.robot.subsystems.SwerveDrivetrain;
+import team.gif.robot.subsystems.driver.Limelight;
 import team.gif.robot.subsystems.driver.Pigeon;
 
 /**
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
   public static SwerveDrivetrain swervetrain;
   public static DriveSwerve driveSwerve;
   public static UiSmartDashboard uiSmartDashboard;
+  public static Limelight limelight;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -43,6 +45,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
     pigeon = new Pigeon(RobotMap.PIGEON);
+    limelight = new Limelight();
     swervetrain = new SwerveDrivetrain();
     driveSwerve = new DriveSwerve();
     swervetrain.setDefaultCommand(driveSwerve);

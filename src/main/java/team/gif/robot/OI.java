@@ -2,13 +2,11 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.driveModes.EnableBoost;
-import team.gif.robot.commands.drivetrain.MoveAwaySlow;
-import team.gif.robot.commands.drivetrain.MoveCloserSlow;
-import team.gif.robot.commands.drivetrain.MoveLeftSlow;
-import team.gif.robot.commands.drivetrain.MoveRightSlow;
 import team.gif.robot.commands.drivetrain.Reset0;
 import team.gif.robot.commands.drivetrain.Reset180;
+import team.gif.robot.commands.limelight.LimeLightAutoAlign;
+import team.gif.robot.commands.limelight.apriltagLevel1;
+import team.gif.robot.commands.limelight.apriltagLevel2;
 
 public class OI {
     /*
@@ -101,7 +99,10 @@ public class OI {
 //        dDPadDown.whileTrue(new MoveCloserSlow());
 //        dLStickBtn.whileTrue(new EnableBoost());
 
-        dA.onTrue(new Reset180());
-        aX.onTrue(new Reset0());
+        dA.and(dRTrigger).onTrue(new Reset180());
+        aX.and(dRTrigger).onTrue(new Reset0());
+        dY.onTrue(new apriltagLevel1());
+        dB.onTrue(new apriltagLevel2());
+        dA.onTrue(new LimeLightAutoAlign());
     }
 }

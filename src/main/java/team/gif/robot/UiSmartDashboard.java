@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import team.gif.robot.commands.drivetrain.Reset0;
+import team.gif.robot.commands.drivetrain.Reset180;
 
 public class UiSmartDashboard {
 
@@ -18,6 +20,13 @@ public class UiSmartDashboard {
      */
     public UiSmartDashboard() {
         ShuffleboardTab tab = Shuffleboard.getTab("SmartDashboard"); // Gets a reference to the shuffleboard tab
+        tab.add("BotHead", (x) -> {
+                    x.setSmartDashboardType("Gyro");
+                    x.addDoubleProperty("Value", () -> Robot.pigeon.getCompassHeading(), null);
+                })
+                .withPosition(5, 0);
+        SmartDashboard.putData("Reset", new Reset0());
+        SmartDashboard.putData("Reset 180", new Reset180());
     }
 
     /**
