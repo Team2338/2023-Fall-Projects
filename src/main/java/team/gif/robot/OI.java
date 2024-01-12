@@ -3,10 +3,6 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.driveModes.EnableBoost;
-import team.gif.robot.commands.drivetrain.MoveAwaySlow;
-import team.gif.robot.commands.drivetrain.MoveCloserSlow;
-import team.gif.robot.commands.drivetrain.MoveLeftSlow;
-import team.gif.robot.commands.drivetrain.MoveRightSlow;
 import team.gif.robot.commands.drivetrain.Reset0;
 import team.gif.robot.commands.drivetrain.Reset180;
 
@@ -95,13 +91,8 @@ public class OI {
          */
 
         // drivetrain
-//        dDPadUp.whileTrue(new MoveAwaySlow());
-//        dDPadRight.whileTrue(new MoveRightSlow());
-//        dDPadLeft.whileTrue(new MoveLeftSlow());
-//        dDPadDown.whileTrue(new MoveCloserSlow());
-//        dLStickBtn.whileTrue(new EnableBoost());
-
         dA.onTrue(new Reset180());
         aX.onTrue(new Reset0());
+        dLStickBtn.whileTrue(new EnableBoost());
     }
 }

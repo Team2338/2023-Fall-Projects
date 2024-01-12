@@ -11,6 +11,7 @@ import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.drivetrain.DriveSwerve;
 import team.gif.robot.subsystems.SwerveDrivetrain;
+import team.gif.robot.subsystems.driver.Limelight;
 import team.gif.robot.subsystems.driver.Pigeon;
 
 /**
@@ -31,6 +32,8 @@ public class Robot extends TimedRobot {
   public static DriveSwerve driveSwerve;
   public static UiSmartDashboard uiSmartDashboard;
 
+  public static Limelight limelight;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -40,13 +43,18 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
-    oi = new OI();
+
     uiSmartDashboard = new UiSmartDashboard();
+
     pigeon = new Pigeon(RobotMap.PIGEON);
+    limelight = new Limelight();
+
     swervetrain = new SwerveDrivetrain();
     driveSwerve = new DriveSwerve();
     swervetrain.setDefaultCommand(driveSwerve);
     swervetrain.resetHeading();
+
+    oi = new OI();
   }
 
   /**
@@ -77,7 +85,9 @@ public class Robot extends TimedRobot {
 
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    autonomousCommand = robotContainer.getAutonomousCommand();
+  }
 
   /** This function is called periodically during autonomous. */
   @Override

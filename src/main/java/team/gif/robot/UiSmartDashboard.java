@@ -18,6 +18,11 @@ public class UiSmartDashboard {
      */
     public UiSmartDashboard() {
         ShuffleboardTab tab = Shuffleboard.getTab("SmartDashboard"); // Gets a reference to the shuffleboard tab
+        tab.add("BotHead", (x) -> {
+                    x.setSmartDashboardType("Gyro");
+                    x.addDoubleProperty("Value", () -> Robot.pigeon.getCompassHeading(), null);
+                })
+                .withPosition(5, 0);
     }
 
     /**

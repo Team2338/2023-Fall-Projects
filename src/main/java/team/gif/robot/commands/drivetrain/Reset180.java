@@ -10,6 +10,7 @@ public class Reset180 extends CommandBase {
     @Override
     public void initialize() {
         Robot.pigeon.resetPigeonPosition(180);
+        System.out.println("Reset Done!!!!!");
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
